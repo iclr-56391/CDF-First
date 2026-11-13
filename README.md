@@ -63,7 +63,6 @@ python run_all.py --toy
 ### Real data 模式
 
 ```bash
-python run_all.py                       # 跑 6 个核心模型（自动跳过已完成的）
 python run_all.py --dry-run             # 只打印命令，不执行
 python run_all.py --models cdf
 python run_all.py --datasets fish,wave  # 只跑部分数据集
@@ -89,7 +88,7 @@ python run_all.py --toy --dry-run                                    # 只打印
 
 | 参数 | 模式 | 说明 |
 | :--- | :--- | :--- |
-| `--models` | 通用 | 逗号分隔模型名。默认 real/toy 均运行 6 个核心模型；可选模型需显式指定 |
+| `--models` | 通用 | 逗号分隔模型名（如 `cdf`） |
 | `--datasets` | 通用 | 逗号分隔数据集名。real 可选 9 个 UCI；toy 可选 5 个 |
 | `--toy` | 通用 | 切到 toy 模式（不加则默认 real 模式） |
 | `--run_ids` | real | 逗号分隔 run_id 列表（默认 0~9） |
@@ -114,7 +113,6 @@ python run_all.py --toy --dry-run                                    # 只打印
 - Real 模式首次运行前需要先生成数据划分：加 `--preprocess`，或手动执行
   `python -m data.from_ddn.pre_process --dataset <数据集名> --train_test_split_ratio 0.3`。
 - toy 模式（`--toy`）不读数据文件、无需 preprocess：`--data_nums` 控制样本数、`--seeds` 控制随机种子。
-- `hrli` 实现 Hall、Racine 与 Li（2004）《Cross-validation and the estimation of conditional probability densities》的连续变量方法：用训练集带宽标准化，并最小化留一加权最小二乘 CV 目标；多维目标使用逐维乘积高斯核。带宽在标准化空间的 `[0.03, 8]` 范围内搜索。此适配器面向项目当前的连续数值输入，未启用论文中针对离散特征的广义核。为控制高维场景的带宽搜索开销，默认从最多 128 个训练点构成的 pilot 子样本上选择带宽，再用完整训练集估计条件密度；可用 `--hrli_cv_samples` 和 `--hrli_cv_iter` 调节搜索规模。该模型一次性拟合，不使用 epoch/Adam 训练。
 - real 默认任务数为 540（6 模型 × 9 数据集 × 10 run_id）；toy 默认任务数为 300（6 模型 × 5 数据集 × 10 seed）。
 - `--count_params` 统计口径：神经网络模型统计 `model.parameters()`；`atm` 报告 Hermite 基系数个数；`hrli` 是非参数核估计器，因此参数量为 0。
 
@@ -128,7 +126,7 @@ python run_all.py --toy --dry-run                                    # 只打印
 python train/_2d/test_2d_parallel_org_space.py --net_name=cdf --data_name=squares --seed=0 \
   --split_ratio=0.5 --device=cuda:0 --condition=y --data_num=1000 \
   --total_epoch=20000 --batch_size=256 --lr=3e-4 --grad_dx=0.01 \
-  --dim_condition_mul=8,8,2 --dim_feature=16,16,1 --num_group=32 --group_size=32 \
+  --dim_condition_mul=4,2,1 --dim_feature=4,4,1 --num_group=4 --group_size=4 \
   --use_bn=t --residual=f --min_max=soft --init_logsigma=-2 \
   --vl_loss_condition=0.05 --vl_loss_point=0.01
 ```
@@ -139,7 +137,7 @@ python train/_2d/test_2d_parallel_org_space.py --net_name=cdf --data_name=square
 python train/_real/real_data_test.py --net_name=cdf --data_name=fish --run_id=0 --seed=0 \
   --split_ratio=0.3 --device=cuda:0 --condition=y \
   --total_epoch=20000 --batch_size=256 --lr=3e-4 --grad_dx=0.01 \
-  --dim_condition_mul=8,8,2 --dim_feature=16,16,1 --num_group=32 --group_size=32 \
+  --dim_condition_mul=4,2,1 --dim_feature=4,4,1 --num_group=4 --group_size=4 \
   --use_bn=t --residual=f --min_max=soft --init_logsigma=-2 \
   --vl_loss_condition=0.01 --vl_loss_point=0.005
 ```
