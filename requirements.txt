@@ -1,0 +1,24 @@
+# ============================================================
+# 运行 train/_real/real_data_test.py（含 realnvp / mdn / flow / cdf / ddn / nlcdf）所需依赖
+#
+# 重要：Python 必须 >= 3.10！
+#   项目用了 PEP 604 的 X | Y 联合类型注解（如 list[Tensor | None]），
+#   Python 3.9 及以下会在 import 时直接报
+#   TypeError: unsupported operand type(s) for |: ...
+#
+# torch 单独装（要选 CUDA 版还是 CPU 版，见 README 或下面说明），不要写死在这里
+# ============================================================
+
+numpy>=1.26
+matplotlib>=3.8
+pandas>=2.0
+tqdm>=4.66
+scipy>=1.11
+tensorboard>=2.14
+Pillow>=10.0
+
+# ---------- 可选（不跑对应脚本就不需要） ----------
+# scikit-learn   # 只有 Collect/collect_data_info.py 里的 sklearn 基线(GaussianMixture/RandomForest/KernelRidge) 用
+# textual        # 只有 Collect/collect_real_and_toy.py 的交互式控制台用
+# rich           # 同上，textual 的依赖
+# sortedcontainers  # utils.py 里某函数惰性 import，正常训练流程不会走到，报错再装

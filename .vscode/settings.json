@@ -1,0 +1,23 @@
+{
+    "workbench.colorTheme": "chuck",
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": [],
+    "cSpell.words": [
+        "arange",
+        "figsize",
+        "functorch",
+        "jacrev",
+        "keepdim",
+        "logpdf",
+        "logsigma",
+        "markersize",
+        "MLCDF",
+        "nlcdf",
+        "pdfs",
+        "randn",
+        "softplus",
+        "umath",
+        "xlabel",
+        "ylabel"
+    ]
+}

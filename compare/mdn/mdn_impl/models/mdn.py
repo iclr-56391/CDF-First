@@ -1,0 +1,78 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from compare.mdn.mdn_impl.utils.utils import gaussian_distribution
+
+
+class MixtureDensityNetwork(nn.Module):
+	"""
+    Mixture density network.
+
+    [ Bishop, 1994 ]
+    Parameters
+    ----------
+    dim_in; dimensionality of the input 
+    dim_out: int; dimensionality of the output
+    num_latent: int; number of components in the mixture model
+
+    Output
+    ----------
+    (pi,mu,sigma) 
+    pi (batch_size x num_latent) is prior 
+    mu (batch_size x dim_out x num_latent) is mean of each Gaussian
+    sigma (batch_size x dim_out x num_latent) is standard deviation of each Gaussian
+
+    """	
+	def __init__(self,dim_in,dim_out,num_latent):
+		super(MixtureDensityNetwork,self).__init__()
+		self.dim_in=dim_in
+		self.num_latent=num_latent
+		self.dim_out=dim_out
+		self.pi_h=nn.Linear(dim_in,num_latent)
+		self.mu_h=nn.Linear(dim_in,dim_out*num_latent)
+		self.sigma_h=nn.Linear(dim_in,dim_out*num_latent)
+
+	def forward(self,x):
+
+		pi=self.pi_h(x)
+		pi=F.softmax(pi, dim=-1)
+
+		mu=self.mu_h(x)
+		mu=mu.view(-1,self.dim_out,self.num_latent)
+
+		sigma=torch.exp(self.sigma_h(x))
+		sigma=sigma.view(-1,self.dim_out,self.num_latent)
+
+		return pi,mu,sigma
+	
+	def get_logprob(self, y,pi,mu,sigma):
+		"""
+		# Parameters
+		----------
+		y (batch_size x dim_out): vector of responses 
+		pi (batch_size x x num_latent) is priors
+		mu (batch_size x dim_out x num_latent) is mean of each Gaussian
+		sigma (batch_size x dim_out x num_latent) is standard deviation of each Gaussian
+
+		Output
+		----------
+		negative log likelihood loss
+
+		"""	
+
+		g=gaussian_distribution(y,mu,sigma)
+		prob=pi*g
+		return torch.log(torch.sum(prob,dim=-1, keepdim=True) + 1e-8)
+
+
+
+
+
+
+
+
+
+
+
+

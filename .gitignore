@@ -1,0 +1,47 @@
+*.pyc
+*.png
+*.gif
+*.log
+*.pth
+*.csv
+*.pkl
+*.pt
+*.xlsx
+*.zip
+*.xls
+*.data
+*.DS_Store
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00000.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00100.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00200.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00300.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00400.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00500.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00600.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00700.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00800.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=00900.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01000.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01100.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01200.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01300.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01400.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01500.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01600.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01700.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01800.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=01900.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/epoch=02000.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/cdf/(1, 0.01, [4, 4, 1], [16, 16, 4], 5e-06),32x32-0/npz/ground truth.npz
+/exp/test2d_parallel_exp_base/('elastic_ring', True, 4000, 0.5)/0/mdn/20/npz/ground truth.npz
+/exp/test2d_parallel_exp_base/('elastic_ring',True,4000,0.5)/0/cdf/(1,0.01,[4,4,1],[16,16,4],5e-06),32x32-1/npz/epoch=00000.npz
+/exp/test2d_parallel_exp_base/('elastic_ring',True,4000,0.5)/0/cdf/(1,0.01,[4,4,1],[16,16,4],5e-06),32x32-1/npz/epoch=00100.npz
+/exp/test2d_parallel_exp_base/('elastic_ring',True,4000,0.5)/0/cdf/(1,0.01,[4,4,1],[16,16,4],5e-06),32x32-1/npz/epoch=00200.npz
+/exp/test2d_parallel_exp_base/('elastic_ring',True,4000,0.5)/0/cdf/(1,0.01,[4,4,1],[16,16,4],5e-06),32x32-1/npz/epoch=00300.npz
+/exp/test2d_parallel_exp_base/('elastic_ring',True,4000,0.5)/0/cdf/(1,0.01,[4,4,1],[16,16,4],5e-06),32x32-1/npz/epoch=00400.npz
+/exp/test2d_parallel_exp_base/('elastic_ring',True,4000,0.5)/0/cdf/(1,0.01,[4,4,1],[16,16,4],5e-06),32x32-1/npz/ground truth.npz
+/exp/test2d_parallel_exp_base/gt-('elastic_ring', False)/npz/ground truth.npz
+/exp/test2d_parallel_exp_base/gt-('elastic_ring', False)/npz/gt-elastic_ring.npz
+/exp/test2d-gt/gt-('elastic_ring', False)/npz/ground truth.npz
+/exp/test2d-gt/gt-('elastic_ring', False)/npz/gt-elastic_ring.npz
+exp/

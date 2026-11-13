@@ -1,0 +1,192 @@
+{
+	// 使用 IntelliSense 了解相关属性。
+	// 悬停以查看现有属性的描述。
+	// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Python GenData",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "main.py",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}",
+				"--gen_data=True",
+				"--read_data=False"
+			]
+		},
+		{
+			"name": "Python RUN",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "main.py",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}",
+				"--gen_data=False",
+				"--read_data=True"
+			]
+		},
+		{
+			"name": "Python MONO",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/test_mono_net_gauss.py",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}",
+				"--gen_data=False",
+				"--read_data=True"
+			]
+		},
+		{
+			"name": "PythonD: 当前文件",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${file}",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}"
+			]
+		},
+		{
+			"name": "base",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_2d/test_2d_parallel_base.py",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}"
+			]
+		},
+		{
+			"name": "base2d",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_2d/test_2d_parallel_base.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--use_encoder=y --use_made=y --data_name=elastic_ring --val_ratio=0.01 --total_epoch=2000 --condition=y --data_num=4000 --split_ratio=0.5 --net_name=cdf --dim_condition=16,16,4 --dim_feature=4,4,1 --num_group=32 --group_size=32 --lr=1e-3"
+			]
+		},
+		{
+			"name": "orgSapce2d-other",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_2d/test_2d_parallel_org_space.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--use_made=y --data_name=elastic_ring --total_epoch=2000 --condition=y --data_num=4000 --split_ratio=0.5 --net_name=nlcdf --dim_condition=16,16,4 --dim_feature=4,4,1 --num_group=32 --group_size=32 --lr=1e-3"
+			]
+		},
+		{
+			"name": "orgSpace2d",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_2d/test_2d_parallel_org_space.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--use_encoder=y --use_made=y --data_name=elastic_ring --vl_loss_condition=0.05 --vl_loss_point=0.01 --total_epoch=2000 --condition=y --data_num=4000 --split_ratio=0.5 --net_name=cdf --dim_condition=16,16,4 --dim_feature=4,4,1 --num_group=32 --group_size=32 --lr=1e-3",
+				"--use_bn=True"
+			]
+		},
+		{
+			"name": "genGT2d",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_2d/gen_ground_truth.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--data_name=elastic_ring"
+			]
+		},
+		{
+			"name": "orgSpace2dDDN",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_2d/test_2d_parallel_org_space.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--device=cuda --use_encoder=y --use_made=y --data_name=elastic_ring --val_ratio=0.01 --total_epoch=2000 --condition=y --data_num=4000 --split_ratio=0.5 --net_name=ddn --dim_condition=16,16,4 --dim_feature=4,4,1 --num_group=32 --group_size=32 --lr=1e-3"
+			]
+		},
+		{
+			"name": "baseReal",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_real/real_data_test.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--use_encoder=y --use_made=y --data_name=concrete --val_ratio=0.2 --total_epoch=2000 --condition=y --split_ratio=0.3 --net_name=cdf --dim_condition=16,16,4 --dim_feature=4,4,1 --num_group=32 --group_size=32 --lr=1e-3"
+			],
+			"env": {
+				"PYTHONPATH":"${workspaceFolder}"
+			}
+		},
+				{
+					"name": "baseRealDDN",
+					"type": "debugpy",
+					"request": "launch",
+					"program": "train/_real/real_data_test.py",
+					"console": "integratedTerminal",
+					"args": [
+						"--device=cpu --use_encoder=y --use_made=y --data_name=energy --val_ratio=0.2 --total_epoch=2000 --condition=y --split_ratio=0.3 --net_name=ddn --dim_condition=16,16,4 --dim_feature=4,4,1 --num_group=32 --group_size=32 --lr=1e-3"
+					],
+					"env": {
+						"PYTHONPATH": "${workspaceFolder}"
+					}
+				},
+		{
+			"name": "real_data",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_real/real_data_test.py",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}"
+			]
+		},	
+		{
+			"name": "real_data_test",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_real/real_data_test.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--use_made=y --data_name=fish --vl_loss_condition=0.01 --vl_loss_point=0.01 --total_epoch=3000 --condition=y --data_num=4000 --split_ratio=0.3 --net_name=cdf --dim_condition=8,8,2 --dim_feature=2,2,1 --num_group=32 --group_size=32 --run_id=0"
+			]
+		},
+		{
+			"name": "real_data_test_other",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_real/real_data_test.py",
+			"console": "integratedTerminal",
+			"args": [
+				"--use_made=y --data_name=fish --vl_loss_condition=0.01 --vl_loss_point=0.01 --total_epoch=3000 --condition=y --data_num=4000 --split_ratio=0.3 --net_name=nlcdf --dim_condition=8,8,2 --dim_feature=2,2,1 --num_group=32 --group_size=32 --run_id=0"
+			]
+		},
+		{
+			"name": "high_dim_data",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "train/_high_dim/high_dim_test.py",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}"
+			]
+		},
+		{
+			"name": "collect_data_info",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "collect/collect_data_info.py",
+			"console": "integratedTerminal",
+			"args": [
+				"${command:pickArgs}",
+				"--save_json=report.json"
+			]
+		},
+	]
+}
